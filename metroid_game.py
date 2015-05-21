@@ -2,37 +2,56 @@
 print('"The last Metroid is in captivity. The galaxy is at peace..."')
 
 #Function to run the intro of the game.
-def Intro():
+def intro():
     print('Congratulations! You are now the owner of a new baby Metroid!')
     print('Please fill out the following information to keep on record with the Metroid Ownership Agency.')
     print('Your Name:')
-    global PlayerName
-    PlayerName = input()
+    global player_name
+    player_name = input()
     print('Your Age:')
-    global PlayerAge
-    PlayerAge = input()
+    global player_age
+    player_age = input()
     print('What will you name your new Metroid?')
-    global MetroidName
-    MetroidName = input()
-    Confirm()
+    global metroid_name
+    metroid_name = input()
+    confirm()
 
 #Function to run the confirmation sequeunce/loop.
-def Confirm():
+def confirm():
     print('Are you sure? Y/N')
-    Answer = input()
-    if Answer is ('Y'):
-        print ('Your name: ' + PlayerName)
-        print ('Your age: ' + PlayerAge)
-        print ('Metroid name: ' + MetroidName)
-    elif Answer is ('N'):   
-        Intro()
+    answer = input()
+    if answer is ('Y'):
+        print ('Your name: ' + player_name)
+        print ('Your age: ' + player_age)
+        print ('Metroid name: ' + metroid_name)
+    elif answer is ('N'):   
+        intro()
     else:
         print('I did not understand. Could you repeat that?')
-        Confirm()
+        confirm()
         
 #The Game
-Intro()
-print('Changes')
+
+    metroid_names = ['Jim', 'Joe-bob', 'Ricardo', ('nested list whoaaaaa', 'omg i cant take it :O')]
+    print (metroid_names)
+    #print (" | ".join(metroid_names))
+    print (metroid_names[0])
+    metroid_names.append(metroid_name)
+    print (metroid_names)
+    print (metroid_names[3][0]) 
+    feed = 0
+    print(feed)
+
+    while feed < 2:
+        print('Feed Metroid? Y/N')
+        feed_answer = input().lower()
+        if feed_answer == 'y':
+            print('Metroid has been fed!')
+            feed += 1
+            print("The metroid has been fed {} times!".format(feed))
+
+intro()
+
 
     
-    
+
