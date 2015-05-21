@@ -1,44 +1,44 @@
+#!/usr/bin/python3
+
 #The first line ever read...
 print('"The last Metroid is in captivity. The galaxy is at peace..."')
+
+player_info = []
 
 #Function to run the intro of the game.
 def intro():
     print('Congratulations! You are now the owner of a new baby Metroid!')
     print('Please fill out the following information to keep on record with the Metroid Ownership Agency.')
     print('Your Name:')
-    global player_name
     player_name = input()
     print('Your Age:')
-    global player_age
     player_age = input()
     print('What will you name your new Metroid?')
-    global metroid_name
     metroid_name = input()
-    confirm()
+    player_info.append(player_name)
+    player_info.append(player_age)
+    player_info.append(metroid_name)
+
+    print("player_info", player_info)
+
+    confirm(player_name, player_age, metroid_name)
 
 #Function to run the confirmation sequeunce/loop.
-def confirm():
+def confirm(player_name, player_age, metroid_name):
     print('Are you sure? Y/N')
-    answer = input()
-    if answer is ('Y'):
+    answer = input().lower()
+    if answer == ('y'):
         print ('Your name: ' + player_name)
         print ('Your age: ' + player_age)
         print ('Metroid name: ' + metroid_name)
-    elif answer is ('N'):   
+    elif answer == ('n'):
         intro()
     else:
         print('I did not understand. Could you repeat that?')
-        confirm()
+        confirm(player_name, player_age, metroid_name)
         
 #The Game
 
-    metroid_names = ['Jim', 'Joe-bob', 'Ricardo', ('nested list whoaaaaa', 'omg i cant take it :O')]
-    print (metroid_names)
-    #print (" | ".join(metroid_names))
-    print (metroid_names[0])
-    metroid_names.append(metroid_name)
-    print (metroid_names)
-    print (metroid_names[3][0]) 
     feed = 0
     print(feed)
 
@@ -49,6 +49,8 @@ def confirm():
             print('Metroid has been fed!')
             feed += 1
             print("The metroid has been fed {} times!".format(feed))
+        else:
+            print("You're a monster!")
 
 intro()
 
