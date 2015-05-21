@@ -32,5 +32,7 @@ def Confirm():
         
 #The Game
 Intro()
+print('Changes')
+
     
     
